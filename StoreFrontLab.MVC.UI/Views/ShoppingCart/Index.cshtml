@@ -1,0 +1,97 @@
+﻿@model Dictionary<string, StoreFrontLab.MVC.UI.Models.ShoppingCartViewModel>
+
+@{
+    ViewBag.Title = "Shopping cart ";
+
+    decimal? cartTotal = 0;
+    int totalCountOFItems = 0;
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Back TO Shopping", "Index", "Cars", null, new { @class = "main-button" })
+</p>
+<!--Empty cart gets the the empty car messsage-->
+@if (Model.Count == 0)
+{
+    <h2>@ViewBag.Message</h2>
+}
+else
+{
+    <table class="table">
+        <tr>
+            <th></th>
+            <th>Make</th>
+            <th>Movie</th>
+            <th>Price</th>
+            @*<th>Quantity</th>*@
+            @*<th>Total</th>*@
+            <th></th>
+            <th>Select Start</th>
+            <th>Select Return</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                <!--Model is the dictionaary to get to the soec value we need to get tp the value prop-->
+                <img src="~/Content/carpics/t_@item.Value.Product.Image" alt="Pic Car"
+                     title="Car pic" class="img-thumbnail" style="max-height: 3em"/>
+            </td>       
+            <td>
+                @Html.DisplayFor(b => item.Value.Product.VIN)
+            </td>
+            <td>
+                @Html.DisplayFor(b => item.Value.Product.MovieID)
+            </td>
+            <td>
+                @Html.DisplayFor(b => item.Value.Product.DailyCost)
+            </td>
+            @*<td>
+                @using (Html.BeginForm("UpdateCart", "ShoppingCart", FormMethod.Post))
+                {
+                    @Html.Hidden("VIN", item.Value.Product.VIN)
+                    @Html.TextBox("qty", item.Value.Qty, new { @class = "form-control", style = "max-width:50px;display:inline;" })
+                    <input type="submit" value="Update Quantity" class="main-button" />
+                }
+                @{totalCountOFItems += item.Value.Qty; }
+            </td>*@
+            @*<td>
+                @{
+                    decimal? lineTotal = item.Value.Product.DailyCost * item.Value.Qty;
+                    cartTotal += lineTotal;
+                }
+                @string.Format($"{lineTotal:c}")
+            </td>*@
+            <td>
+                @Html.ActionLink("Remove", "RemoveFromCart", new { id = item.Value.Product.VIN })
+            </td>
+            <td>
+                <p><input type="text" class="form-control" id="datepicker" /></p>
+            </td>
+            <td>
+                <p><input type="text" class="form-control" id="datepicker2" /></p>
+            </td>
+        </tr>
+        }
+
+    </table>
+    <p>
+        You have <strong>@totalCountOFItems</strong> @(totalCountOFItems > 1 ? "Car" : "cars") in your cart,
+        Your total before taxes and shipping is <strong>@string.Format($"{cartTotal:c}")</strong>.
+    </p>
+
+    @section Scripts {
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+        <script>
+            $(function () {
+                $("#datepicker").datepicker();
+                $("#datepicker2").datepicker();
+            });
+        </script>
+    }
+}
+
