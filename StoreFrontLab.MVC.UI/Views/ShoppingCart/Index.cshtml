@@ -41,10 +41,10 @@ else
                      title="Car pic" class="img-thumbnail" style="max-height: 3em"/>
             </td>       
             <td>
-                @Html.DisplayFor(b => item.Value.Product.VIN)
+                @Html.DisplayFor(b => item.Value.Product.Year)
             </td>
             <td>
-                @Html.DisplayFor(b => item.Value.Product.MovieID)
+                @Html.DisplayFor(b => item.Value.Product.Description)
             </td>
             <td>
                 @Html.DisplayFor(b => item.Value.Product.DailyCost)
@@ -76,6 +76,8 @@ else
             </td>
         </tr>
         }
+
+        
 
     </table>
     <p>

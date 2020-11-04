@@ -47,7 +47,7 @@
         </dt>
 
         <dd>
-            <img src="~/Content/img/cars/@Model.Image" alt="Car Pic" title="@Model.Movie Car" />
+            <img src="~/Content/carpics/" alt="Car Pic" title="@Model.Movie Car" />
         </dd>
 
         <dt>
@@ -83,14 +83,14 @@
         </dd>
 
         <dt>
-            <label>Quantity</label>
+ 
         </dt>
 
         <dd>
             @using (Html.BeginForm("AddToCart", "Cars", new { VIN = Model.VIN }, FormMethod.Post, new { style = "display:inline" }))
             {
                 @Html.TextBox("Qty", 1, new { @class = "form-control", style = "max-width: 50px; display: inline;" })
-                <input type="submit" value="Add to Cart" class="main-button" />
+                <input type="submit" value="Book" class="main-button" />
             }
 
         </dd>
