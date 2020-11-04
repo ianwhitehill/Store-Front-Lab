@@ -15,28 +15,22 @@
             @Html.DisplayNameFor(model => model.Year)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.DailyCost)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsAutomatic)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Image)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FuelType.FuelTypes)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.Make.Makes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Make.Model)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Movie.MovieTitle)
         </th>
         <th>
+            @Html.DisplayNameFor(model => model.Image)
+        </th>
+        <th>
             @Html.DisplayNameFor(model => model.Status.StatusType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DailyCost)
         </th>
         <th></th>
     </tr>
@@ -47,13 +41,13 @@
             @Html.DisplayFor(modelItem => item.Year)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.DailyCost)
+            @Html.DisplayFor(modelItem => item.Make.Makes)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Description)
+            @Html.DisplayFor(modelItem => item.Make.Model.Models)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.IsAutomatic)
+            @Html.DisplayFor(modelItem => item.Movie.MovieTitle)
         </td>
         <td>
             @*@Html.DisplayFor(modelItem => item.Image)*@
@@ -62,21 +56,15 @@
             </a>
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.FuelType.FuelTypes)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Make.Makes)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Movie.MovieTitle)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.Status.StatusType)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.VIN }) |
-            @Html.ActionLink("Details", "Details", new { id=item.VIN }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.VIN })
+            @Html.DisplayFor(modelItem => item.DailyCost)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.VIN }) |
+            @Html.ActionLink("Details", "Details", new { id = item.VIN }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.VIN })
         </td>
     </tr>
 }
