@@ -202,7 +202,6 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\carpics\t_noimage.png" />
     <Content Include="Content\css\bootstrap.min.css" />
     <Content Include="Content\css\font-awesome.min.css" />
     <Content Include="Content\css\templatemo-style.css" />
@@ -220,7 +219,6 @@
     <Content Include="Content\img\about\4.jpg" />
     <Content Include="Content\img\banner-bg.jpg" />
     <Content Include="Content\img\call-us-bg.jpg" />
-    <Content Include="Content\carpics\noimage.png" />
     <Content Include="Content\img\contact-form-bg.jpg" />
     <Content Include="Content\img\copyright-bg.png" />
     <Content Include="Content\img\footer-bg.jpg" />
@@ -420,6 +418,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\carpics\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -11,9 +11,13 @@ namespace StoreFrontLab.MVC.UI.Utilities
 {
     public class ImageService
     {
-        //**** ONLY FOR IMGS NOT OTHER TYPES  
+        //This code is ONLY used for Image resizing, if you are uploading ANY other file type,
+        //this logic is not required.
 
-        //********* IF REUSING CHECK THE DEFAULT VALUE IN THE DELETE() THAT IT MATCHES YOUR DEFAULT FILE***********
+        //*********************IF YOU ARE RE-USING THIS CODE******************************
+        //****Check the Default Image Value in the Delete() and MAKE SURE IT MATCHES YOUR*
+        //****Default File name in the NEW PROJECT where you plan to use this code.*******
+        //********************************************************************************
 
         /// <summary>
         /// Saves provided image as two separate files: full-sized and thumbnail versions.
@@ -23,12 +27,6 @@ namespace StoreFrontLab.MVC.UI.Utilities
         /// <param name="image">Image to be resized</param>
         /// <param name="maxImgSize">Largest size (width or height) to use for full-sized image</param>
         /// <param name="maxThumbSize">Largest size (width or height) to use for smaller, thumbnail image</param>
-
-        //string savePath = "~/Content/carpics/";
-        //string fileName = "carpic";
-        //Image image = ;
-        //int maxImgSize = 100;
-        //int maxThumbSive = 10;
         public static void ResizeImage(string savePath, string fileName, Image image, int maxImgSize, int maxThumbSize)
         {
             //Get new proportional image dimensions based off current image size and maxImgSize
@@ -53,8 +51,6 @@ namespace StoreFrontLab.MVC.UI.Utilities
         /// <param name="imgHeight">Current image height</param>
         /// <param name="maxImgSize">Desired maximum size (width OR height)</param>
         /// <returns></returns>
-
-        
         public static int[] GetNewSize(int imgWidth, int imgHeight, int maxImgSize)
         {
             // Calculate which dimension is being changed the most and use that as the aspect ratio for both sides
@@ -102,12 +98,16 @@ namespace StoreFrontLab.MVC.UI.Utilities
         /// <param name="fileName">Name of the base file to be deleted</param>
         public static void Delete(string path, string fileName)
         {
-            //****** FIX IMG IN IF TO YOUR DEFAULT IMG NAME ********
+
+            //*********************MODIFY THE IMAGE IN THE IF STATEMENT BELOW********************************
+            //*****to match YOUR CURRENT DEFAULT IMAGE NAME (ie, if you have default.jpg as your image)******
+            //*****update the if to reflect the: if (fileName.ToLower() == "default.jpg") below       *******
+            //***********************************************************************************************
             //Skip this action if targeted file is the "default image".
-            if (fileName.ToLower() == "noimage.png")
-            {
-                return;
-            }
+            //if (fileName.ToLower() == "noimage.jpg")
+            //{
+            //    return;
+            //}
 
             //Create FileInfo objects for different versions of the file: full (and thumbnail in case it's an image)
             FileInfo baseFile = new FileInfo(path + fileName);

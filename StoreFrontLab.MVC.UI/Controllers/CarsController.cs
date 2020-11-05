@@ -237,7 +237,10 @@ namespace StoreFrontLab.MVC.UI.Controllers
                         int maxThumbSize = 100;
 
                         //Call the imageService.ResizeImage() in Utilities Folder
-                        ImageService.ResizeImage(savePath, imgName, convertedImage, maxImageSize, maxThumbSize);
+                        ImageService.ResizeImage(savePath, imgName, convertedImage, maxImageSize, maxThumbSize);                        
+
+                        ImageService.Delete(savePath, car.Image);
+
                         car.Image = imgName;
                     }
 

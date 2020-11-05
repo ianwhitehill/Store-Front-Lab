@@ -7,7 +7,7 @@
 <h2>Edit</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Cars", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     
@@ -90,7 +90,7 @@
                     <label>Existing Image</label><br />
                     <img src="~/Content/carpics/t_@Model.Image" alt="@Model.Year" />
                 </p>
-                <p><label>Change Image: </label><input type="file" name="CarPic" /></p>
+                <p><label>Change Image: </label><input type="file" name="carPic" /></p>
 
                 @*@Html.EditorFor(model => model.Image, new { htmlAttributes = new { @class = "form-control" } })
         @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })*@
